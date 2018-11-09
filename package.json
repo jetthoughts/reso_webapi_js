@@ -1,0 +1,19 @@
+{
+  "name": "reso_webapi_js",
+  "version": "1.0.0",
+  "description": "RESO API JS client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jetthoughts/reso_webapi_js.git"
+  },
+  "author": "JetThoughts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jetthoughts/reso_webapi_js/issues"
+  },
+  "homepage": "https://github.com/jetthoughts/reso_webapi_js#readme"
+}
