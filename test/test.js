@@ -1,32 +1,79 @@
-var assert = require('assert');
-var axios = require('axios');
-var nock = require('nock')
+const assert = require('assert');
+const nock = require('nock');
+const mockedProducts = require('./mockedProducts');
+const RESOWebApiClient = require('../reso_web_api_client');
+const client = new RESOWebApiClient('http://services.odata.org/V4/OData/OData.svc', auth = {})
 
-describe('Array', function() {
-  describe('#indexOf()', function() {
-    it('should return -1 when the value is not present', function() {
-      assert.equal([1,2,3].indexOf(4), -1);
-    });
-  });
-});
-
-describe('Nock', function() {
+describe('GET methods', function() {
   describe('#get()', function() {
-    it('should returns a successful mocked response', function(done) {
-
-      //specify the url to be intercepted
+    it('should returns list of all Products', function(done) {
       nock('https://services.odata.org/V4/OData/OData.svc')
-        //define the method to be intercepted
         .get('/Products')
-        //respond with a OK and the specified JSON response
         .reply(200, {
-          'message': 'This is a mocked response'
+          value: [
+            {
+              ID: 0,
+              Name: 'Bread',
+              Description: 'Whole grain bread',
+              ReleaseDate: '1992-01-01T00:00:00Z',
+              DiscontinuedDate: null,
+              Rating: 4,
+              Price: 2.5 
+            },
+            {
+              ID: 1,
+              Name: 'Milk',
+              Description: 'Low fat milk',
+              ReleaseDate: '1995-10-01T00:00:00Z',
+              DiscontinuedDate: null,
+              Rating: 3,
+              Price: 3.5
+            },
+            {
+              ID: 2,
+              Name: 'Vint soda',
+              Description: 'Americana Variety - Mix of 6 flavors',
+              ReleaseDate: '2000-10-01T00:00:00Z',
+              DiscontinuedDate: null,
+              Rating: 3,
+              Price: 20.9
+            }
+          ]
         });
 
-      axios.get('https://services.odata.org/V4/OData/OData.svc/Products')
+      client.get('Products')
         .then(function (response) {
           assert.equal(response.status, 200);
-          assert.equal(response.data.message, 'This is a mocked response');
+          assert.deepEqual(response.data.value, mockedProducts.products);
+
+          done();
+        });
+    });
+  });
+  describe('#find_by()', function() {
+    it('should returns a Coffee item', function(done) {
+      nock('https://services.odata.org/V4/OData/OData.svc')
+        .get('/Products')
+        .query({ $filter: "Name eq 'Coffee'" })
+        .reply(200, {
+          value: [
+            {
+              '@odata.type': '#ODataDemo.FeaturedProduct',
+              ID: 10,
+              Name: 'Coffee',
+              Description: 'Bulk size can of instant coffee',
+              ReleaseDate: '1982-12-31T00:00:00Z',
+              DiscontinuedDate: null,
+              Rating: 1,
+              Price: 6.99
+            }
+          ]
+        });
+
+      client.find_by('Products', { Name: 'Coffee' })
+        .then(function (response) {
+          assert.equal(response.status, 200);
+          assert.deepEqual(response.data.value, [mockedProducts.coffee]);
 
           done();
         });
