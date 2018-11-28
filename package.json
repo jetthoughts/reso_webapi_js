@@ -17,7 +17,8 @@
   },
   "homepage": "https://github.com/jetthoughts/reso_webapi_js#readme",
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "nock": "^10.0.2"
   },
   "dependencies": {
     "axios": "^0.18.0"
