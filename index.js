@@ -5,9 +5,9 @@ const client = new RESOWebApiClient('http://services.odata.org/V4/OData/OData.sv
 /* Example of GET requests */
 
 client.get('Products')
-  .then(d => console.log(d.data.value))
+  .then(response => console.log(response.data.value))
   .catch(err => console.log(`Error: ${err.message}`))
 
 client.find_by('Products', { Name: 'Coffee' })
-  .then(d => console.log(d.data.value))
-  .catch(err => console.log(err))
+  .then(response => console.log(response.data.value))
+  .catch(err => console.log(`Error: ${err.message}`))
