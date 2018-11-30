@@ -10,7 +10,7 @@ const getDirectories = srcpath =>
 getDirectories(normalizedPath).forEach(dir => {
   fs.readdirSync(dir).forEach(file => {
     const testFunction = require(`${dir}/${file}`);
-    const testFunctionName = require(`${dir}/${file}`).name;
+    const testFunctionName = `${path.basename(dir)}/${file}`;
 
     exports[testFunctionName] = testFunction;
   });
