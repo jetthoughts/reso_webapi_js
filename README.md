@@ -25,6 +25,19 @@ client.find_by('Products', { Name: 'Coffee' })
   .then(response => console.log(response.data.value))
   .catch(err => console.log(`Error: ${err.message}`))
 ```
+OR if you are using `async/await`:
+```javascript
+(async function() {
+  try {
+    const products_response = await client.get('Products');
+    console.log(products_response.data.value);
+    const product_response = await client.find_by('Products', { Name: 'Coffee' });
+    console.log(product_response.data.value);
+  } catch(error) {
+    console.log(`Error: ${error.message}`)
+  }
+})();
+```
 ## Development
 
 Service for testing requests: [https://services.odata.org/V4/OData/OData.svc/Products](https://services.odata.org/V4/OData/OData.svc/Products)
