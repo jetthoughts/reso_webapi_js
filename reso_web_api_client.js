@@ -9,15 +9,15 @@ class RESOWebApiClient {
     });
   }
 
-  get(entity_string) {
-    return this.request({
+  async get(entity_string) {
+    return await this.request({
       method: 'get',
       url: entity_string
     });
   }
 
-  find_by(entity_string, config) {
-    return this.request({
+  async find_by(entity_string, config) {
+    return await this.request({
       method: 'get',
       url: entity_string,
       params: {

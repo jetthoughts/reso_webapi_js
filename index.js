@@ -1,13 +1,16 @@
-const RESOWebApiClient = require('./reso_web_api_client')
-
-const client = new RESOWebApiClient('http://services.odata.org/V4/OData/OData.svc', auth = {})
-
 /* Example of GET requests */
 
-client.get('Products')
-  .then(response => console.log(response.data.value))
-  .catch(err => console.log(`Error: ${err.message}`))
+(async function() {
+  const RESOWebApiClient = require('./reso_web_api_client');
+  const client = new RESOWebApiClient('http://services.odata.org/V4/OData/OData.svc', auth = {});
 
-client.find_by('Products', { Name: 'Coffee' })
-  .then(response => console.log(response.data.value))
-  .catch(err => console.log(`Error: ${err.message}`))
+  try {
+    const products_response = await client.get('Products');
+    console.log(products_response.data.value);
+    const product_response = await client.find_by('Products', { Name: 'Coffee' });
+    console.log(product_response.data.value);
+  } catch(error) {
+    console.log(`Error: ${error.message}`)
+  }
+
+})();

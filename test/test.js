@@ -4,9 +4,9 @@ const mockedProducts = require('./mockedProducts');
 const RESOWebApiClient = require('../reso_web_api_client');
 const client = new RESOWebApiClient('http://services.odata.org/V4/OData/OData.svc', auth = {})
 
-describe('GET methods', function() {
-  describe('#get()', function() {
-    it('should returns list of all Products', function(done) {
+describe('GET methods', () => {
+  describe('#get()', () => {
+    it('should returns list of all Products', async () => {
       nock('https://services.odata.org/V4/OData/OData.svc')
         .get('/Products')
         .reply(200, {
@@ -41,17 +41,14 @@ describe('GET methods', function() {
           ]
         });
 
-      client.get('Products')
-        .then(function (response) {
-          assert.equal(response.status, 200);
-          assert.deepEqual(response.data.value, mockedProducts.products);
-
-          done();
-        });
+      const response = await client.get('Products');
+      assert.equal(response.status, 200);
+      assert.deepEqual(response.data.value, mockedProducts.products);
     });
   });
-  describe('#find_by()', function() {
-    it('should returns a Coffee item', function(done) {
+
+  describe('#find_by()', () => {
+    it('should returns a Coffee item', async () => {
       nock('https://services.odata.org/V4/OData/OData.svc')
         .get('/Products')
         .query({ $filter: "Name eq 'Coffee'" })
@@ -70,13 +67,9 @@ describe('GET methods', function() {
           ]
         });
 
-      client.find_by('Products', { Name: 'Coffee' })
-        .then(function (response) {
-          assert.equal(response.status, 200);
-          assert.deepEqual(response.data.value, [mockedProducts.coffee]);
-
-          done();
-        });
+      const response = await client.find_by('Products', { Name: 'Coffee' });
+      assert.equal(response.status, 200);
+      assert.deepEqual(response.data.value, [mockedProducts.coffee]);
     });
   });
 });
