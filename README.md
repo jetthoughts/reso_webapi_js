@@ -38,6 +38,19 @@ OR if you are using `async/await`:
   }
 })();
 ```
+## Basic Authentication
+
+To secure an oData Web API calls using basic authentication over HTTPS you need to pass the second parameter in your client instance:
+```javascript
+  const client = new RESOWebApiClient(
+    'http://services.odata.org/V4/OData/OData.svc',
+    {
+      username: 'xxxxxxxxxxxxx',
+      password: 'xxxxxxxxxxxxx'
+    }
+  );
+```
+
 ## Development
 
 Service for testing requests: [https://services.odata.org/V4/OData/OData.svc/Products](https://services.odata.org/V4/OData/OData.svc/Products)

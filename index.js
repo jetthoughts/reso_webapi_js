@@ -1,5 +1,5 @@
 const RESOWebApiClient = require('./reso_web_api_client');
-const client = new RESOWebApiClient('http://services.odata.org/V4/OData/OData.svc', auth = {});
+const client = new RESOWebApiClient('http://services.odata.org/V4/OData/OData.svc');
 
 /* Example of GET requests */
 (async function() {

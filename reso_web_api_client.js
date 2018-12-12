@@ -1,11 +1,14 @@
 const axios = require('axios')
 
 class RESOWebApiClient {
-  constructor(endpoint, auth) {
-    this.auth = auth;
+  constructor(endpoint, auth = {}) {
     this.request = axios.create({
       baseURL: endpoint,
-      timeout: 5000
+      timeout: 5000,
+      auth: {
+        username: auth.username,
+        password: auth.password
+      }
     });
   }
 
