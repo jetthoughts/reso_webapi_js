@@ -29,6 +29,33 @@ class RESOWebApiClient {
     });
   }
 
+  async send(entity_string, config){
+    return await this.request({
+      method: 'post',
+      url: entity_string,
+      params: config
+    })
+  }
+
+  async edit(entity_string, config){
+    const requestUrl = `${entity_string}(${config.id})`
+
+    return await this.request({
+      method: 'put',
+      url: entity_string,
+      params: config
+    })
+  }
+
+  async remove(entity_string, config){
+    const requestUrl = `${entity_string}(${config.id})`
+
+    return await this.request({
+      method: 'delete',
+      url: requestUrl
+    })
+  }
+
   _create_filter_string_for(config) {
     let count = 0;
     let filter_string = '';
