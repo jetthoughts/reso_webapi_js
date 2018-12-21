@@ -6,3 +6,10 @@ describe('GET methods', () => {
       specs[spec]();
   }
 });
+
+describe('POST, PUT, DELETE methods', () => {
+  for(const spec in specs) {
+    if(spec.match('changeData'))
+      specs[spec]();
+  }
+});

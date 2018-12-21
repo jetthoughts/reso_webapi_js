@@ -1,5 +1,6 @@
 # reso_webapi_js
 
+The RESO Web API JS provides a basic API client that supports the [OData](https://www.odata.org/) protocol as specified by the [RESO standards group](https://www.reso.org/).
 
 ## Setup
 
@@ -38,6 +39,28 @@ OR if you are using `async/await`:
   }
 })();
 ```
+
+To add new item use `send` method:
+```javascript
+client.send('Products', { name: 'Example 1' })
+  .then(response => console.log(response))
+  .catch(err => console.log(`Error: ${err.message}`))
+```
+
+To change item data use `edit` method:
+```javascript
+client.edit('Products', { id: 5, name: 'NewName' })
+  .then(response => console.log(response))
+  .catch(err => console.log(`Error: ${err.message}`))
+```
+
+To delete item use `remove` method:
+```javascript
+client.remove('Products', { id: 5 })
+  .then(response => console.log(response))
+  .catch(err => console.log(`Error: ${err.message}`))
+```
+
 ## Basic Authentication
 
 To secure an oData Web API calls using basic authentication over HTTPS you need to pass the second parameter in your client instance:
@@ -53,4 +76,4 @@ To secure an oData Web API calls using basic authentication over HTTPS you need 
 
 ## Development
 
-Service for testing requests: [https://services.odata.org/V4/OData/OData.svc/Products](https://services.odata.org/V4/OData/OData.svc/Products)
+Service for testing requests: [https://services.odata.org/V3/(S(fsb41nprwii3l3eo2dhgwecc))/OData/OData.svc/](https://services.odata.org/V3/(S(fsb41nprwii3l3eo2dhgwecc))/OData/OData.svc/)
