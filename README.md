@@ -2,11 +2,16 @@
 
 The RESO Web API JS provides a basic API client that supports the [OData](https://www.odata.org/) protocol as specified by the [RESO standards group](https://www.reso.org/).
 
+## Installing
+
+```bash
+$ yarn add reso_webapi_js
+```
 ## Setup
 
 Import a client:
 ```javascript
-const RESOWebApiClient = require('./reso_web_api_client');
+const RESOWebApiClient = require('reso_webapi_js');
 ```
 Initialize a client:
 ```javascript
