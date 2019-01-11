@@ -79,6 +79,30 @@ To secure an oData Web API calls using basic authentication over HTTPS you need 
   );
 ```
 
-## Development
+## Examples
 
-Service for testing requests: [https://services.odata.org/V3/(S(fsb41nprwii3l3eo2dhgwecc))/OData/OData.svc/](https://services.odata.org/V3/(S(fsb41nprwii3l3eo2dhgwecc))/OData/OData.svc/)
+Examples of the SDK usage are provided in the [example](example/basic.js) folder.
+
+To run the example:
+```bash
+$ cd example
+$ node basic.js
+```
+
+## Contributing
+
+Bug reports and pull requests are welcome on: https://github.com/jetthoughts/reso_webapi_js.
+
+Service for testing requests: [https://services.odata.org/V3/(S(fsb41nprwii3l3eo2dhgwecc))/OData/OData.svc/](https://services.odata.org/V3/(S(fsb41nprwii3l3eo2dhgwecc))/OData/OData.svc/).
+
+## Tests
+
+You can check how we test requests in the `test/specs` folder which contains tests for our library API. In the `test/mocks` folder we hold fake data for testing our requests.
+
+If you want to add tests for existing API you just need to add **test case/file** in one of the following folders inside `specs`.
+
+But if you want to add new API you need to create folder with appropriate name, put your test files and add test endpoint inside `test/test.js` file to make tests work.
+
+## License
+
+MIT
