@@ -1,0 +1,10 @@
+83f231f Add POST, PUT, DELETE methods (#8)
+3ef993b  #6 Add basic authentication (#6)
+f727581 Add methods for getting data (#7)
+3f128ca Added nock to mock http requests (#10)
+9bb05fd Add service link for testing requests (#3)
+ab78f3f  #9 Add Mocha to test client (#9)
+22c0df0  #5 Add axios (#5)
+9feace4  #4 Create RESO web api client class (#4)
+e5b8a19 Initialize project (#1)
+7c848fc Initial commit
