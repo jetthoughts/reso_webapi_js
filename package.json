@@ -1,6 +1,6 @@
 {
   "name": "reso_webapi_js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "RESO API Node JS client",
   "main": "index.js",
   "scripts": {
