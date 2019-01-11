@@ -1,7 +1,7 @@
 {
   "name": "reso_webapi_js",
-  "version": "1.0.0",
-  "description": "RESO API JS client",
+  "version": "0.1.0",
+  "description": "RESO API Node JS client",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -12,6 +12,18 @@
   },
   "author": "JetThoughts",
   "license": "MIT",
+  "contributors": [
+    "Ilya Novohatskyi <1llyanovohatskyy@gmail.com> (https://github.com/sweatC)",
+    "Roman Tershak <roman0tershak@gmail.com> (https://github.com/rtershak)",
+    "Paul Keen <paul@jetthoughts.com> (https://github.com/pftg)"
+  ],
+  "keywords": [
+    "reso",
+    "data",
+    "api client",
+    "odata protocol",
+    "node"
+  ],
   "bugs": {
     "url": "https://github.com/jetthoughts/reso_webapi_js/issues"
   },
