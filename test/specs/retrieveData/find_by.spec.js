@@ -1,7 +1,7 @@
 const assert = require('assert');
 const nock = require('nock');
 const mockedProducts = require('../../mocks/mockedProducts');
-const RESOWebApiClient = require('../../../reso_web_api_client');
+const RESOWebApiClient = require('../../../lib/reso_web_api_client');
 const client = new RESOWebApiClient('http://services.odata.org/V4/OData/OData.svc')
 
 module.exports = function TestFindByMehtod() {
